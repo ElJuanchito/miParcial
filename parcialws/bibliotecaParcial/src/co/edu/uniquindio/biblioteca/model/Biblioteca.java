@@ -380,7 +380,7 @@ public class Biblioteca {
     }
 
     /**
-     * Entrega lista de libros prestados a un estudiante segun los parametros ingresados
+     * Entrega lista de libros prestados a un estudiante segun los parametros ingresados [Punto #1]
      * @param id
      * @param programa
      * @param tipo
@@ -400,7 +400,7 @@ public class Biblioteca {
     }
 
     /**
-     * Entrega una lista de prestamos del empleado que cumpla con lo parametros de titulo y cantidad de minimo 10
+     * Entrega una lista de prestamos del empleado que cumpla con lo parametros de titulo y cantidad de minimo 10 [punto #2]
      * @param autor
      * @return
      */

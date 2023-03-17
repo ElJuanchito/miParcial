@@ -84,6 +84,13 @@ public class Prestamo {
         return cumple;
     }
 
+    private boolean verificarTota(double valor) {
+        return false;
+    }
+
+    private boolean verificarAutor(String autor) {
+        return false;
+    }
 
 
     /**

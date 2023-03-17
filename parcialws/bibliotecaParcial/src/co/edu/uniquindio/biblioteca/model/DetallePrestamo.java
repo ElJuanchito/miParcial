@@ -67,6 +67,15 @@ public class DetallePrestamo {
     }
 
     /**
+     * Verifica que la cantidad sea mayor a 10
+     * @return
+     */
+    public boolean verificarCantidadMayor10() {
+
+        return cantidad >= 10;
+    }
+
+    /**
      * verifica si el isbn ingresado es el mismo del libro prestado
      * @param isbn
      * @return
@@ -124,5 +133,15 @@ public class DetallePrestamo {
     public boolean cumpleTipo(Tipo tipo) {
 
         return getLibro().getTipo() == tipo;
+    }
+
+
+    /**
+     * Verifica si el autor es el mismo al indicado
+     * @param autor
+     * @return
+     */
+    public boolean verificarAutorLibro(String autor) {
+        return autor.equals(libro.getAutor());
     }
 }

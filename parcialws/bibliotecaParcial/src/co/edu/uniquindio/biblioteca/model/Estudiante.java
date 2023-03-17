@@ -107,4 +107,22 @@ public class Estudiante {
     public boolean verificarEdad(int edad) {
         return getEdadEstudiante() > edad;
     }
+
+    /**
+     * Verifica que la identificacion sea igual a la indicada en el parametro
+     * @param id
+     * @return
+     */
+    public boolean verificarId(String id){
+        return getIdentificacion().equals(id);
+    }
+
+    /**
+     * Verifica que el programa sea igual al indicado en el parametro
+     * @param programa
+     * @return
+     */
+    public boolean verificarPrograma(String programa) {
+        return getPrograma().equals(programa);
+    }
 }

@@ -1,6 +1,7 @@
 package co.edu.uniquindio.biblioteca.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Empleado {
     private String nombre;
@@ -61,5 +62,20 @@ public class Empleado {
 
     public void setAniosExperiencia(int aniosExperiencia) {
         this.aniosExperiencia = aniosExperiencia;
+    }
+
+    /**
+     * Verifica nombre si el nombre tiene al menos tres vocales
+     * @return
+     */
+    public boolean verificarNombreVocales() {
+        char [] vocales = {'a', 'e', 'i', 'o', 'u'};
+        int cont = 0;
+        for (char caracter: nombre.toCharArray()) {
+            for (char caracterV: vocales) {
+                if (caracter == caracterV) cont ++;
+            }
+        } if (cont >= 3) return true;
+        return false;
     }
 }

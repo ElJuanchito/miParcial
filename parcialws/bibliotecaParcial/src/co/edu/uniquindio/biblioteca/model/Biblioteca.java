@@ -378,4 +378,40 @@ public class Biblioteca {
 
         return cantidad;
     }
+
+    /**
+     * Entrega lista de libros prestados a un estudiante segun los parametros ingresados
+     * @param id
+     * @param programa
+     * @param tipo
+     * @return
+     * @throws PrestamoException
+     */
+    public ArrayList<Libro> obtenerLibrosPrestadosEstudiante(String id, String programa, Tipo tipo) throws PrestamoException {
+        for (Estudiante estudiante: listaEstudiantes) {
+            if(estudiante.verificarId(id))
+            if(estudiante.verificarPrograma(programa)){
+                for (Prestamo prestamo: estudiante.getListaPrestamos()){
+                    return prestamo.getLibrosPrestadosTotalTipo(10000, 200000, tipo);
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Entrega una lista de prestamos del empleado que cumpla con lo parametros de titulo y cantidad de minimo 10
+     * @param autor
+     * @return
+     */
+    public ArrayList<Prestamo> obtenerPrestamosEmpleado(String autor){
+        for (Empleado empleado: listaEmpleados) {
+            if(empleado.verificarNombreVocales()){
+                for (Prestamo prestamo: empleado.getListaPrestamos()) {
+                    if(prestamo.verificarCantidadAutor(autor)) return empleado.getListaPrestamos();
+                }
+            }
+        }
+        return null;
+    }
 }

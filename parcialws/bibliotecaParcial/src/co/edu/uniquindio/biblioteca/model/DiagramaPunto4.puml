@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Evento{
+    - nombre : String
+    - fechaInicio : Integer
+    - fechaFinalizacion : Integer
+    + anadirActividad()
+    + retirarActividad()
+    + verificarEstadoActividad()
+}
+class Actividad{
+    - nombre : String
+    - horaInicio : String
+    - duracionEstimada : Integer
+}
+class Responsable{
+    - nombre : String
+    - identificacion : String
+    - programa : String
+}
+class Lugar{
+    - nombre : String
+    - cupoMaximo : Integer
+}
+
+enum TipoActividad {
+ACADEMICA
+ESPARCIMIENTO
+PAUSA
+}
+
+Evento *--> Actividad: [+ listaActividades *]
+Actividad *--> Lugar: [+lugar]
+Actividad *--> Responsable: [+resposable]
+Actividad - TipoActividad: [+tipo]
+
+@enduml

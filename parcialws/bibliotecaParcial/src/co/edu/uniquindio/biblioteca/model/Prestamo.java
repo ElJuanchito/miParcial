@@ -75,13 +75,12 @@ public class Prestamo {
         boolean totalVerificado = false;
         boolean autorVerificado = false;
 
-//		totalVerificado = verificarTota(valor);
-//		autorVerificado = verificarAutor(autor);
-//
-//		if(totalVerificado == true && autorVerificado == true){
-//			cumple = true;
-//		}
-//
+	totalVerificado = verificarTota(valor);
+    autorVerificado = verificarAutor(autor);
+		if(totalVerificado == true && autorVerificado == true){
+			cumple = true;
+		}
+
         return cumple;
     }
 
@@ -147,5 +146,37 @@ public class Prestamo {
             }
         }
         return cantidad;
+    }
+
+    /**
+     * Retorna una lista de libros prestados segun los parametros ingresados
+     * @param lI
+     * @param lS
+     * @param tipo
+     * @return
+     * @throws PrestamoException
+     */
+    public ArrayList<Libro> getLibrosPrestadosTotalTipo(int lI, int lS, Tipo tipo) throws PrestamoException {
+        ArrayList <Libro> listaLibros = new ArrayList<Libro>();
+
+        if (total > lI && total < lS){
+            for (DetallePrestamo dPrestamo: listaDetallePrestamo){
+                if(dPrestamo.cumpleTipo(tipo)) listaLibros.add(dPrestamo.getLibro());
+            } return listaLibros;
+        } throw new PrestamoException("No se econtraron los libros segun los parametros dados");
+    }
+
+    /**
+     * Verifica si el prestamo cumple con el mismo autor y la cantidad de unidades es minimo de 10
+     * @param autor
+     * @return
+     */
+    public boolean verificarCantidadAutor(String autor) {
+        for (DetallePrestamo dPrestamo: getListaDetallePrestamo()){
+            if (dPrestamo.verificarAutorLibro(autor) && dPrestamo.verificarCantidadMayor10()){
+                return true;
+            }
+        }
+        return false;
     }
 }
